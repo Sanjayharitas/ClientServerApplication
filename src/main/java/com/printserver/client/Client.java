@@ -15,24 +15,26 @@ public class Client {
     public static void main(String[] args) throws MalformedURLException, NotBoundException, RemoteException {
         PrintService service = (PrintService) Naming.lookup("rmi://localhost:5099/PrintService");
         int counter = 0;
+        String auth = null;
         boolean isRunning = false;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Good to see you! \t I am your agent! \n Please login with your username and password.");
 
-        while (counter<3) {
+        while (counter < 3) {
             System.out.print("Username: ");
             String userName = scanner.nextLine();
             System.out.print("Password: ");
             String password = scanner.nextLine();
             String sha256hex = getSha256hex(password);
-            Boolean auth = service.auth(userName, sha256hex);
-            if (auth) {
+            auth = service.auth(userName, sha256hex);
+            if (auth != null) {
                 isRunning = true;
+                System.out.print("SessionId:" + auth + "\n");
                 break;
             } else {
                 System.out.print("Invalid username or password!! Try again.\n");
                 counter++;
-                if(counter>3){
+                if (counter > 3) {
                     System.out.print("Too many invalid attempts!... Bye :)");
                     System.exit(0);
                 }
@@ -50,39 +52,39 @@ public class Client {
                     String fileName = scanner.nextLine();
                     System.out.print("Enter printer: ");
                     String printer1 = scanner.nextLine();
-                    service.print(fileName, printer1);
+                    service.print(fileName, printer1, auth);
                     break;
                 case "2":
                     System.out.print("Enter printer name: ");
                     String printer2 = scanner.nextLine();
                     System.out.println("Printing jobs for printer [" + printer2 + "] are:");
-                    System.out.println(service.printQueue(printer2));
+                    System.out.println(service.printQueue(printer2, auth));
                     break;
                 case "3":
                     System.out.print("Enter printer name: ");
                     String printer3 = scanner.nextLine();
                     System.out.print("Enter job number: ");
                     int jobId = Integer.parseInt(scanner.nextLine());
-                    service.topQueue(printer3, jobId);
+                    service.topQueue(printer3, jobId, auth);
                     break;
                 case "4":
-                    service.start();
+                    service.start(auth);
                     break;
                 case "5":
-                    service.stop();
+                    service.stop(auth);
                     break;
                 case "6":
-                    service.restart();
+                    service.restart(auth);
                     break;
                 case "7":
                     System.out.print("Enter printer name: ");
                     String printer4 = scanner.nextLine();
-                    System.out.println(service.status(printer4));
+                    System.out.println(service.status(printer4, auth));
                     break;
                 case "8":
                     System.out.print("Enter parameter name: ");
                     String parameter1 = scanner.nextLine();
-                    System.out.println(service.readConfig(parameter1));
+                    System.out.println(service.readConfig(parameter1, auth));
                     break;
                 case "9":
                     System.out.print("Enter parameter name: ");
@@ -90,7 +92,7 @@ public class Client {
                     System.out.print("Enter value: ");
                     String value = scanner.nextLine();
 
-                    service.setConfig(parameter2, value);
+                    service.setConfig(parameter2, value, auth);
                     break;
                 case "10":
                     isRunning = false;
