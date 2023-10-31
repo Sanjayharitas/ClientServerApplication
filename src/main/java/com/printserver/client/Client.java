@@ -9,13 +9,25 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Scanner;
 
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
+import java.security.Key;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.SignatureAlgorithm;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Component;
+
 public class Client {
+    private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     public static void main(String[] args) throws MalformedURLException, NotBoundException, RemoteException {
         PrintService service = (PrintService) Naming.lookup("rmi://localhost:5099/PrintService");
         int counter = 0;
         String auth = null;
+        String token = null;
         boolean isRunning = false;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Good to see you! \t I am your agent! \n Please login with your username and password.");
@@ -27,6 +39,7 @@ public class Client {
             String password = scanner.nextLine();
             String sha256hex = getSha256hex(password);
             auth = service.auth(userName, sha256hex);
+
             if (auth != null) {
                 isRunning = true;
                 System.out.print("SessionId:" + auth + "\n");
@@ -122,5 +135,45 @@ public class Client {
         System.out.println("9. set the parameters");
         System.out.println("10. exit -> (x)");
         System.out.print("\nWhat can I do for you: ");
+    }
+    // 600000 == to 10minutes,
+    private static String generateJWTToken(String username){
+        Date currentDate = new Date();
+        Date expirationDate = new Date(currentDate.getTime() + 600000);
+
+        String secretKey = "your-secret-key-here";
+        long expirationTime = 60 * 60 * 1000; // 1 h
+
+        String token = Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(expireDate)
+                .signWith(key,SignatureAlgorithm.HS512)
+                .compact();
+
+        return token;
+    }
+
+    private static String getUsernameFromJWT(String token){
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+        return claims.getSubject();
+    }
+
+    private static boolean validateToken(String token){
+        try {
+            Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(token);
+            return true;
+        } catch (ExpiredJwtException ex){
+            return false;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 }
