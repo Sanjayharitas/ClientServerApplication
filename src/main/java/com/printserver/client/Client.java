@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Scanner;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import java.security.Key;
@@ -147,7 +148,7 @@ public class Client {
         String token = Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
-                .setExpiration(expireDate)
+                .setExpiration(expirationDate)
                 .signWith(key,SignatureAlgorithm.HS512)
                 .compact();
 
