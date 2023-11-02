@@ -129,8 +129,8 @@ public class Client {
                 .toString();
     }
 
-    private static void printTaskList() {
-        System.out.println("1. add a print job");
+    private static void printTaskList() {    
+        System.out.println("\n1. add a print job");
         System.out.println("2. print the job list");
         System.out.println("3. move a job to the top of the queue");
         System.out.println("4. start the print server");
@@ -145,7 +145,7 @@ public class Client {
     // 600000 == to 10minutes,
     private static String generateJWTToken(String username){
         Date currentDate = new Date();
-        Date expirationDate = new Date(currentDate.getTime() + 6000000);
+        Date expirationDate = new Date(currentDate.getTime() + 600000);
 
         return Jwts.builder()
                 .setSubject(username)
