@@ -23,7 +23,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 public class Client {
-    private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+    public static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     public static void main(String[] args) throws MalformedURLException, NotBoundException, RemoteException {
         PrintService service = (PrintService) Naming.lookup("rmi://localhost:5099/PrintService");
         int counter = 0;
@@ -43,7 +43,9 @@ public class Client {
 
             if (auth != null) {
                 isRunning = true;
+                token = generateJWTToken(userName);
                 System.out.print("SessionId:" + auth + "\n");
+                System.out.println("Token: " + token + "\n\n");
                 break;
             } else {
                 System.out.print("Invalid username or password!! Try again.\n");
@@ -55,8 +57,11 @@ public class Client {
             }
         }
 
-
         while (isRunning) {
+            if(!validateToken(token)){
+                isRunning = false;
+                break;
+            }
             printTaskList();
             String taskInput = scanner.nextLine();
 
@@ -66,39 +71,39 @@ public class Client {
                     String fileName = scanner.nextLine();
                     System.out.print("Enter printer: ");
                     String printer1 = scanner.nextLine();
-                    service.print(fileName, printer1, auth);
+                    service.print(fileName, printer1, token, key);
                     break;
                 case "2":
                     System.out.print("Enter printer name: ");
                     String printer2 = scanner.nextLine();
                     System.out.println("Printing jobs for printer [" + printer2 + "] are:");
-                    System.out.println(service.printQueue(printer2, auth));
+                    System.out.println(service.printQueue(printer2, token, key));
                     break;
                 case "3":
                     System.out.print("Enter printer name: ");
                     String printer3 = scanner.nextLine();
                     System.out.print("Enter job number: ");
                     int jobId = Integer.parseInt(scanner.nextLine());
-                    service.topQueue(printer3, jobId, auth);
+                    service.topQueue(printer3, jobId, token, key);
                     break;
                 case "4":
-                    service.start(auth);
+                    service.start(token, key);
                     break;
                 case "5":
-                    service.stop(auth);
+                    service.stop(token, key);
                     break;
                 case "6":
-                    service.restart(auth);
+                    service.restart(token, key);
                     break;
                 case "7":
                     System.out.print("Enter printer name: ");
                     String printer4 = scanner.nextLine();
-                    System.out.println(service.status(printer4, auth));
+                    System.out.println(service.status(printer4, token, key));
                     break;
                 case "8":
                     System.out.print("Enter parameter name: ");
                     String parameter1 = scanner.nextLine();
-                    System.out.println(service.readConfig(parameter1, auth));
+                    System.out.println(service.readConfig(parameter1, token, key));
                     break;
                 case "9":
                     System.out.print("Enter parameter name: ");
@@ -106,7 +111,7 @@ public class Client {
                     System.out.print("Enter value: ");
                     String value = scanner.nextLine();
 
-                    service.setConfig(parameter2, value, auth);
+                    service.setConfig(parameter2, value, token, key);
                     break;
                 case "10":
                     isRunning = false;
@@ -140,19 +145,14 @@ public class Client {
     // 600000 == to 10minutes,
     private static String generateJWTToken(String username){
         Date currentDate = new Date();
-        Date expirationDate = new Date(currentDate.getTime() + 600000);
+        Date expirationDate = new Date(currentDate.getTime() + 6000000);
 
-        String secretKey = "your-secret-key-here";
-        long expirationTime = 60 * 60 * 1000; // 1 h
-
-        String token = Jwts.builder()
+        return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(expirationDate)
                 .signWith(key,SignatureAlgorithm.HS512)
                 .compact();
-
-        return token;
     }
 
     private static String getUsernameFromJWT(String token){
