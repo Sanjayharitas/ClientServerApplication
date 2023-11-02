@@ -119,6 +119,8 @@ public class Client {
                 case "x":
                     isRunning = false;
                     break;
+                default:
+                    System.out.println("Invalid option, please choose a correct option from the list: ");
             }
         }
     }

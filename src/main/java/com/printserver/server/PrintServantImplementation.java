@@ -98,7 +98,6 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
 
     @Override
     public void stop(String token, Key key) throws RemoteException {
-
         if (validateToken(token, key)) {
             if (!isRunning) {
                 System.out.println(getUsernameFromJWT(token, key) + " - Print server is already stopped!");
