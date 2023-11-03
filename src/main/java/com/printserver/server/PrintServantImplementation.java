@@ -199,9 +199,7 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
 
     @Override
     public String auth(String userName, String password) {
-        String dob = DBConnection.getDOB(userName);
-        String hashPassword = PasswordProtection.PBKDF2(dob, password);
-        boolean res = DBConnection.authUser(userName, hashPassword);
+        boolean res = PasswordProtection.verifyPassword(password, userName);
         if (res) {
             String token = generateJWTToken(userName);
             LOGGER.info(java.time.LocalDateTime.now() + "    " + "Token generated for " + getUsernameFromJWT(token, key) + "- token: " + token + "\n");
