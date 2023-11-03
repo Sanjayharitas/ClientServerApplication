@@ -13,12 +13,12 @@ import java.security.spec.InvalidKeySpecException;
  */
 public class PasswordProtection {
 //    public static void main(String[] args) {
-//        PBKDF2("admin", "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8");
+//        PBKDF2("April4", "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8");
 //    }
 
-    public static String PBKDF2(String username, String password) {
+    public static String PBKDF2(String dob, String password) {
 
-        String salt = username;
+        String salt = dob;
         int iterations = 10000;
         int keyLength = 512;
         char[] passwordChars = password.toCharArray();
@@ -27,7 +27,7 @@ public class PasswordProtection {
         byte[] hashedBytes = hashPassword(passwordChars, saltBytes, iterations, keyLength);
         String hashedString = Hex.encodeHexString(hashedBytes);
 //        For testing purpose
-//        System.out.println(hashedString);
+        System.out.println(hashedString);
         return hashedString;
     }
 
@@ -43,4 +43,5 @@ public class PasswordProtection {
             throw new RuntimeException(e);
         }
     }
+
 }

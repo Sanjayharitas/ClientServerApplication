@@ -9,6 +9,7 @@ import java.sql.*;
 // Connection to H2 DB is made in this class
 public class DBConnection {
     private static final Logger LOGGER = LogManager.getLogger(DBConnection.class);
+
     public static boolean authUser(String username, String password) {
         Connection conn = null;
         try {
@@ -33,6 +34,27 @@ public class DBConnection {
             }
         }
         return false;
+    }
+
+    public static String getDOB(String userName) {
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery("select dob from user_details WHERE name='" + userName + "' limit 1;");
+            while (rs.next()) {
+                return rs.getString("dob");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return null;
     }
 
 }

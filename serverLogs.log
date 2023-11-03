@@ -70,3 +70,134 @@
 [INFO ] 2023-11-03 14:51:32.926 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] 2023-11-03 14:51:32.928 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
 [INFO ] 2023-11-03 14:51:32.931 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-03 15:04:16.567 [main] ApplicationServer - Starting ApplicationServer using Java 17.0.8 with PID 3068 (D:\Assignments\DS\ClientServerApplication\target\classes started by sanja in D:\Assignments\DS\ClientServerApplication)
+[INFO ] 2023-11-03 15:04:16.584 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-03 15:04:17.302 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-03 15:04:17.327 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-03 15:04:18.156 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-03 15:04:18.170 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-03 15:04:18.172 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-03 15:04:18.172 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-03 15:04:18.290 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-03 15:04:18.292 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1656 ms
+[INFO ] 2023-11-03 15:04:18.349 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-03 15:04:18.583 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-03 15:04:18.585 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-03 15:04:18.596 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-03 15:04:18.848 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-03 15:04:18.975 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-03 15:04:18.983 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-03 15:04:19.285 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-03 15:04:19.522 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-03 15:04:19.564 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-03 15:04:19.637 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-03 15:04:19.850 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-03 15:04:19.856 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-03 15:04:19.895 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-11-03 15:04:20.521 [main] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Failed to execute SQL script statement #3 of file [D:\Assignments\DS\ClientServerApplication\target\classes\data.sql]: INSERT INTO user_details VALUES (1, 'admin', '7b6db39a706d9253d08a2bd1c99e8347f030a17dc9c4a331b129a94772fe6a7ada827a436cbcd91a496bf3d9a6fea78e8bb30025ad31c6e6367f630de7d94d5b', April1)
+[INFO ] 2023-11-03 15:04:20.524 [main] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-03 15:04:20.531 [main] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-03 15:04:20.538 [main] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-03 15:04:20.542 [main] StandardService - Stopping service [Tomcat]
+[INFO ] 2023-11-03 15:04:20.560 [main] ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[ERROR] 2023-11-03 15:04:20.610 [main] SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Failed to execute SQL script statement #3 of file [D:\Assignments\DS\ClientServerApplication\target\classes\data.sql]: INSERT INTO user_details VALUES (1, 'admin', '7b6db39a706d9253d08a2bd1c99e8347f030a17dc9c4a331b129a94772fe6a7ada827a436cbcd91a496bf3d9a6fea78e8bb30025ad31c6e6367f630de7d94d5b', April1)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:941) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) [spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) [spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) [spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) [spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) [spring-boot-3.1.0.jar:3.1.0]
+	at com.printserver.ApplicationServer.main(ApplicationServer.java:17) [classes/:?]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #3 of file [D:\Assignments\DS\ClientServerApplication\target\classes\data.sql]: INSERT INTO user_details VALUES (1, 'admin', '7b6db39a706d9253d08a2bd1c99e8347f030a17dc9c4a331b129a94772fe6a7ada827a436cbcd91a496bf3d9a6fea78e8bb30025ad31c6e6367f630de7d94d5b', April1)
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:282) ~[spring-jdbc-6.0.9.jar:6.0.9]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-6.0.9.jar:6.0.9]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:54) ~[spring-jdbc-6.0.9.jar:6.0.9]
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyDataScripts(AbstractScriptDatabaseInitializer.java:102) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:77) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.9.jar:6.0.9]
+	... 18 more
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "APRIL1" not found; SQL statement:
+INSERT INTO user_details VALUES (1, 'admin', '7b6db39a706d9253d08a2bd1c99e8347f030a17dc9c4a331b129a94772fe6a7ada827a436cbcd91a496bf3d9a6fea78e8bb30025ad31c6e6367f630de7d94d5b', April1) [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:300) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.command.Parser.prepareCommand(Parser.java:575) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237) ~[h2-2.1.214.jar:2.1.214]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223) ~[h2-2.1.214.jar:2.1.214]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:261) ~[spring-jdbc-6.0.9.jar:6.0.9]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-6.0.9.jar:6.0.9]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:54) ~[spring-jdbc-6.0.9.jar:6.0.9]
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyDataScripts(AbstractScriptDatabaseInitializer.java:102) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:77) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.9.jar:6.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.9.jar:6.0.9]
+	... 18 more
+[INFO ] 2023-11-03 15:05:03.690 [main] ApplicationServer - Starting ApplicationServer using Java 17.0.8 with PID 23920 (D:\Assignments\DS\ClientServerApplication\target\classes started by sanja in D:\Assignments\DS\ClientServerApplication)
+[INFO ] 2023-11-03 15:05:03.707 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-03 15:05:04.391 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-03 15:05:04.422 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-03 15:05:05.277 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-03 15:05:05.289 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-03 15:05:05.290 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-03 15:05:05.291 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-03 15:05:05.401 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-03 15:05:05.403 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1637 ms
+[INFO ] 2023-11-03 15:05:05.465 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-03 15:05:05.711 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-03 15:05:05.713 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-03 15:05:05.724 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-03 15:05:06.026 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-03 15:05:06.132 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-03 15:05:06.137 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-03 15:05:06.447 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-03 15:05:06.602 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-03 15:05:06.672 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-03 15:05:06.767 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-03 15:05:06.981 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-03 15:05:06.985 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-03 15:05:07.031 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-03 15:05:07.585 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-03 15:05:07.615 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-03 15:05:07.628 [main] ApplicationServer - Started ApplicationServer in 4.331 seconds (process running for 5.188)
+[INFO ] 2023-11-03 15:05:07.698 [main] ApplicationServer - 2023-11-03T15:05:07.698481100	Print Server Is Running!
+[INFO ] 2023-11-03 15:05:30.531 [RMI TCP Connection(2)-10.74.45.134] DBConnection - 2023-11-03T15:05:30.531569    User :admin authenticated successfully!!
+[INFO ] 2023-11-03 15:05:30.629 [RMI TCP Connection(2)-10.74.45.134] PrintServantImplementation - 2023-11-03T15:05:30.601082500    Token generated for admin- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5OTAyMDMzMCwiZXhwIjoxNjk5MDIwOTMwfQ.V1Uddqb-HOdc61rsuABo2cFYWbmWl8jrD-dqm6GF4-cz8sXMz0JTsZ4K-7DkEIUqBN__87gTbm9qbqL64UzcVA
+
+[INFO ] 2023-11-03 15:05:52.988 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-03 15:05:52.990 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-03 15:05:52.993 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
