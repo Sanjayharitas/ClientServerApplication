@@ -1,30 +1,28 @@
 package com.printserver.server;
 
+import com.printserver.interfaces.PrintService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
 import java.security.Key;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.SignatureAlgorithm;
 
 public class PrintServantImplementation extends UnicastRemoteObject implements PrintService {
+    private static final Logger LOGGER = LogManager.getLogger(PrintServantImplementation.class);
     private Map<String, List<String>> printQueues;
     private Map<String, String> configParameters;
     private boolean isRunning = true;
-    private String sessionIdGenerated;
-    private Key _key;
+    public static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+
     public PrintServantImplementation() throws RemoteException {
 //        super();
         this.printQueues = new HashMap<>();
@@ -32,7 +30,7 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
     }
 
     @Override
-    public void print(String fileName, String printer, String token, Key key) throws RemoteException {
+    public void print(String fileName, String printer, String token) throws RemoteException {
         if (validateToken(token, key)) {
             List<String> printerQueue = printQueues.get(printer);
             if (printerQueue == null) {
@@ -40,19 +38,20 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
                 printQueues.put(printer, printerQueue);
             }
             printerQueue.add(fileName);
-
-            System.out.println(getUsernameFromJWT(token, key) + " - Print job received: File [" + fileName + "] on Printer [" + printer + "]");
+            System.out.println(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print job received: File [" + fileName + "] on Printer [" + printer + "]");
+            LOGGER.error(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print job received: File [" + fileName + "] on Printer [" + printer + "]");
         } else {
+            LOGGER.error("Token validation failed!!");
             throw new RemoteException("Token validation failed.");
         }
     }
 
     @Override
-    public String printQueue(String printer, String token, Key key) throws RemoteException {
+    public String printQueue(String printer, String token) throws RemoteException {
         if (validateToken(token, key)) {
             List<String> printerQueue = printQueues.get(printer);
             if (printerQueue != null) {
-                System.out.println(" - Printing jobs for printer [" + printer + "] are:");
+                System.out.println(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Printing jobs for printer [" + printer + "] are:");
                 StringBuilder queueInfo = new StringBuilder();
                 for (int i = 0; i < printerQueue.size(); i++) {
                     queueInfo.append((i + 1)).append(". ").append(printerQueue.get(i)).append("\n");
@@ -67,7 +66,7 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
     }
 
     @Override
-    public void topQueue(String printer, int job, String token, Key key) throws RemoteException {
+    public void topQueue(String printer, int job, String token) throws RemoteException {
         if (validateToken(token, key)) {
             List<String> printerQueue = printQueues.get(printer);
 
@@ -75,7 +74,8 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
                 String jobToMove = printerQueue.remove(job - 1);
                 printerQueue.add(0, jobToMove);
             } else {
-                System.out.println(getUsernameFromJWT(token, key) + " - Error: Invalid job or printer not found.");
+                LOGGER.error(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Error: Invalid job or printer not found.");
+                System.out.println(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Error: Invalid job or printer not found.");
             }
         } else {
             throw new RemoteException("Token validation failed.");
@@ -83,13 +83,15 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
     }
 
     @Override
-    public void start(String token, Key key) throws RemoteException {
+    public void start(String token) throws RemoteException {
         if (validateToken(token, key)) {
             if (isRunning) {
-                System.out.println(getUsernameFromJWT(token, key) + " - Print server is already running!");
+                LOGGER.info(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print server is already running!");
+                System.out.println(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print server is already running!");
             } else {
                 isRunning = true;
-                System.out.println(getUsernameFromJWT(token, key) + " - Print server is now running.");
+                LOGGER.info(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print server is now running.");
+                System.out.println(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print server is now running.");
             }
         } else {
             throw new RemoteException("Token validation failed.");
@@ -97,13 +99,15 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
     }
 
     @Override
-    public void stop(String token, Key key) throws RemoteException {
+    public void stop(String token) throws RemoteException {
         if (validateToken(token, key)) {
             if (!isRunning) {
-                System.out.println(getUsernameFromJWT(token, key) + " - Print server is already stopped!");
+                LOGGER.info(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print server is already stopped!");
+                System.out.println(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print server is already stopped!");
             } else {
                 isRunning = false;
-                System.out.println(getUsernameFromJWT(token, key) + " - Print server is now stopped.");
+                LOGGER.info(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print server is now stopped.");
+                System.out.println(java.time.LocalDateTime.now() + "    " + getUsernameFromJWT(token, key) + " - Print server is now stopped.");
             }
         } else {
             throw new RemoteException("Token validation failed.");
@@ -111,15 +115,15 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
     }
 
     @Override
-    public void restart(String token, Key key) throws RemoteException {
+    public void restart(String token) throws RemoteException {
         if (validateToken(token, key)) {
             if (isRunning) {
-                stop(token, key);
+                stop(token);
                 printQueues.clear();
-                start(token, key);
+                start(token);
             } else {
                 printQueues.clear();
-                start(token, key);
+                start(token);
             }
         } else {
             throw new RemoteException("Token validation failed.");
@@ -127,7 +131,7 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
     }
 
     @Override
-    public String status(String printer, String token, Key key) throws RemoteException {
+    public String status(String printer, String token) throws RemoteException {
         if (validateToken(token, key)) {
             List<String> printerQueue = printQueues.get(printer);
 
@@ -143,7 +147,7 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
     }
 
     @Override
-    public String readConfig(String parameter, String token, Key key) throws RemoteException {
+    public String readConfig(String parameter, String token) throws RemoteException {
         if (validateToken(token, key)) {
             String value = configParameters.get(parameter);
             return Objects.requireNonNullElseGet(value, () -> getUsernameFromJWT(token, key) + " - Error: Parameter " + parameter + " not found.");
@@ -153,7 +157,7 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
     }
 
     @Override
-    public void setConfig(String parameter, String value, String token, Key key) throws RemoteException {
+    public void setConfig(String parameter, String value, String token) throws RemoteException {
         if (validateToken(token, key)) {
             configParameters.put(parameter, value);
         } else {
@@ -166,14 +170,15 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
         String hashPassword = PasswordProtection.PBKDF2(userName, password);
         boolean res = DBConnection.authUser(userName, hashPassword);
         if (res) {
-            byte[] array = new byte[7];
-            new Random().nextBytes(array);
-            sessionIdGenerated = new String(array, Charset.forName("UTF-8"));
-            return sessionIdGenerated;
+            String token = generateJWTToken(userName);
+            LOGGER.info(java.time.LocalDateTime.now() + "    " + "Token generated for " + getUsernameFromJWT(token, key) + "- token: " + token + "\n");
+            System.out.println(java.time.LocalDateTime.now() + "    " + "Token generated for " + getUsernameFromJWT(token, key) + "- token: " + token + "\n");
+            return token;
         }
         return null;
     }
-    private static String getUsernameFromJWT(String token, Key key){
+
+    private static String getUsernameFromJWT(String token, Key key) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
@@ -182,18 +187,32 @@ public class PrintServantImplementation extends UnicastRemoteObject implements P
         return claims.getSubject();
     }
 
-    private static boolean validateToken(String token, Key key){
+    private static boolean validateToken(String token, Key key) {
         try {
             Jwts.parserBuilder()
                     .setSigningKey(key)
                     .build()
                     .parseClaimsJws(token);
             return true;
-        } catch (ExpiredJwtException ex){
+        } catch (ExpiredJwtException ex) {
             return false;
         } catch (Exception ex) {
             return false;
         }
     }
+
+    // 600000 == to 10minutes,
+    private static String generateJWTToken(String username) {
+        Date currentDate = new Date();
+        Date expirationDate = new Date(currentDate.getTime() + 600000);
+
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(expirationDate)
+                .signWith(key, SignatureAlgorithm.HS512)
+                .compact();
+    }
+
 }
 

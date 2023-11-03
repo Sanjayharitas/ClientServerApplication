@@ -1,51 +1,43 @@
 package com.printserver.client;
 
 import com.google.common.hash.Hashing;
-import com.printserver.server.PrintService;
+import com.printserver.interfaces.PrintService;
 
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.sql.SQLException;
-import java.util.Date;
 import java.util.Scanner;
 
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
-import java.security.Key;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.SignatureAlgorithm;
-
-import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Component;
+// This is the client Class that establish the connection with server and only the common interface is accessible from this class.
 
 public class Client {
-    public static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+
     public static void main(String[] args) throws MalformedURLException, NotBoundException, RemoteException {
         PrintService service = (PrintService) Naming.lookup("rmi://localhost:5099/PrintService");
         int counter = 0;
-        String auth = null;
         String token = null;
         boolean isRunning = false;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Good to see you! \t I am your agent! \n Please login with your username and password.");
 
+//        Max number of attempts
         while (counter < 3) {
+
             System.out.print("Username: ");
             String userName = scanner.nextLine();
+//            For testing purpose we are using scanner but in real time the application uses console.readpassword to mask the password.
+//            Console console = System.console();
+//            char[] passwordChar = console.readPassword("Enter your password: ");
+//            String password = new String(passwordChar);
             System.out.print("Password: ");
             String password = scanner.nextLine();
             String sha256hex = getSha256hex(password);
-            auth = service.auth(userName, sha256hex);
+            token = service.auth(userName, sha256hex);
 
-            if (auth != null) {
+            if (token != null) {
                 isRunning = true;
-                token = generateJWTToken(userName);
-                System.out.print("SessionId:" + auth + "\n");
-                System.out.println("Token: " + token + "\n\n");
                 break;
             } else {
                 System.out.print("Invalid username or password!! Try again.\n");
@@ -56,12 +48,11 @@ public class Client {
                 }
             }
         }
+        serverTasks(isRunning, scanner, service, token);
+    }
 
+    private static void serverTasks(boolean isRunning, Scanner scanner, PrintService service, String token) throws RemoteException {
         while (isRunning) {
-            if(!validateToken(token)){
-                isRunning = false;
-                break;
-            }
             printTaskList();
             String taskInput = scanner.nextLine();
 
@@ -71,39 +62,39 @@ public class Client {
                     String fileName = scanner.nextLine();
                     System.out.print("Enter printer: ");
                     String printer1 = scanner.nextLine();
-                    service.print(fileName, printer1, token, key);
+                    service.print(fileName, printer1, token);
                     break;
                 case "2":
                     System.out.print("Enter printer name: ");
                     String printer2 = scanner.nextLine();
                     System.out.println("Printing jobs for printer [" + printer2 + "] are:");
-                    System.out.println(service.printQueue(printer2, token, key));
+                    System.out.println(service.printQueue(printer2, token));
                     break;
                 case "3":
                     System.out.print("Enter printer name: ");
                     String printer3 = scanner.nextLine();
                     System.out.print("Enter job number: ");
                     int jobId = Integer.parseInt(scanner.nextLine());
-                    service.topQueue(printer3, jobId, token, key);
+                    service.topQueue(printer3, jobId, token);
                     break;
                 case "4":
-                    service.start(token, key);
+                    service.start(token);
                     break;
                 case "5":
-                    service.stop(token, key);
+                    service.stop(token);
                     break;
                 case "6":
-                    service.restart(token, key);
+                    service.restart(token);
                     break;
                 case "7":
                     System.out.print("Enter printer name: ");
                     String printer4 = scanner.nextLine();
-                    System.out.println(service.status(printer4, token, key));
+                    System.out.println(service.status(printer4, token));
                     break;
                 case "8":
                     System.out.print("Enter parameter name: ");
                     String parameter1 = scanner.nextLine();
-                    System.out.println(service.readConfig(parameter1, token, key));
+                    System.out.println(service.readConfig(parameter1, token));
                     break;
                 case "9":
                     System.out.print("Enter parameter name: ");
@@ -111,7 +102,7 @@ public class Client {
                     System.out.print("Enter value: ");
                     String value = scanner.nextLine();
 
-                    service.setConfig(parameter2, value, token, key);
+                    service.setConfig(parameter2, value, token);
                     break;
                 case "10":
                     isRunning = false;
@@ -131,7 +122,7 @@ public class Client {
                 .toString();
     }
 
-    private static void printTaskList() {    
+    private static void printTaskList() {
         System.out.println("\n1. add a print job");
         System.out.println("2. print the job list");
         System.out.println("3. move a job to the top of the queue");
@@ -144,39 +135,5 @@ public class Client {
         System.out.println("10. exit -> (x)");
         System.out.print("\nWhat can I do for you: ");
     }
-    // 600000 == to 10minutes,
-    private static String generateJWTToken(String username){
-        Date currentDate = new Date();
-        Date expirationDate = new Date(currentDate.getTime() + 600000);
 
-        return Jwts.builder()
-                .setSubject(username)
-                .setIssuedAt(new Date())
-                .setExpiration(expirationDate)
-                .signWith(key,SignatureAlgorithm.HS512)
-                .compact();
-    }
-
-    private static String getUsernameFromJWT(String token){
-        Claims claims = Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-        return claims.getSubject();
-    }
-
-    private static boolean validateToken(String token){
-        try {
-            Jwts.parserBuilder()
-                    .setSigningKey(key)
-                    .build()
-                    .parseClaimsJws(token);
-            return true;
-        } catch (ExpiredJwtException ex){
-            return false;
-        } catch (Exception ex) {
-            return false;
-        }
-    }
 }

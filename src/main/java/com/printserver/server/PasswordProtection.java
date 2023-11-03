@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 /**
- * This is the Main class.
+ * Takes care of hashing
  */
 public class PasswordProtection {
 //    public static void main(String[] args) {
@@ -26,8 +26,8 @@ public class PasswordProtection {
 
         byte[] hashedBytes = hashPassword(passwordChars, saltBytes, iterations, keyLength);
         String hashedString = Hex.encodeHexString(hashedBytes);
-
-        System.out.println(hashedString);
+//        For testing purpose
+//        System.out.println(hashedString);
         return hashedString;
     }
 
