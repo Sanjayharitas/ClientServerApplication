@@ -62,7 +62,7 @@ public class Client {
                     String fileName = scanner.nextLine();
                     System.out.print("Enter printer: ");
                     String printer1 = scanner.nextLine();
-                    service.print(fileName, printer1, token);
+                    System.out.println(service.print(fileName, printer1, token));
                     break;
                 case "2":
                     System.out.print("Enter printer name: ");
@@ -75,16 +75,16 @@ public class Client {
                     String printer3 = scanner.nextLine();
                     System.out.print("Enter job number: ");
                     int jobId = Integer.parseInt(scanner.nextLine());
-                    service.topQueue(printer3, jobId, token);
+                    System.out.println(service.topQueue(printer3, jobId, token));
                     break;
                 case "4":
-                    service.start(token);
+                    System.out.println(service.start(token));
                     break;
                 case "5":
-                    service.stop(token);
+                    System.out.println(service.stop(token));
                     break;
                 case "6":
-                    service.restart(token);
+                    System.out.println(service.restart(token));
                     break;
                 case "7":
                     System.out.print("Enter printer name: ");
@@ -102,7 +102,7 @@ public class Client {
                     System.out.print("Enter value: ");
                     String value = scanner.nextLine();
 
-                    service.setConfig(parameter2, value, token);
+                    System.out.println(service.setConfig(parameter2, value, token));
                     break;
                 case "10":
                     isRunning = false;
