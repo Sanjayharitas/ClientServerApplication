@@ -837,3 +837,451 @@ DROP TABLE IF EXISTS user_details [90107-214]
 [INFO ] 2023-11-15 17:27:50.928 [RMI TCP Connection(11)-172.20.10.7] PasswordProtection - Authentication for Bob successful.
 [INFO ] 2023-11-15 17:27:50.930 [RMI TCP Connection(11)-172.20.10.7] PrintServantImplementation - 2023-11-15T17:27:50.929281300    Token generated for Bob- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJCb2IiLCJpYXQiOjE3MDAwNjU2NzAsImV4cCI6MTcwMDA2NjI3MCwicm9sZSI6InN1cGVydXNlciJ9.EQTvWBfpa4K8lF0KY1BvkGiQGU2ZNwhWGzrEPs3TT2-fJGrrrt7yjGqOyRbedZaRmDOs9yyjj-BisrKSF1sNFw
 
+[INFO ] 2023-11-15 18:53:30.242 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 18:53:30.260 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 18:53:30.262 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 18:53:37.301 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 20476 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 18:53:37.308 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 18:53:37.817 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 18:53:37.834 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 18:53:38.230 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 18:53:38.238 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 18:53:38.239 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 18:53:38.240 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 18:53:38.320 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 18:53:38.321 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 975 ms
+[INFO ] 2023-11-15 18:53:38.366 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 18:53:38.580 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 18:53:38.582 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 18:53:38.591 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 18:53:38.711 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 18:53:38.776 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 18:53:38.780 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 18:53:38.929 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 18:53:39.053 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 18:53:39.087 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 18:53:39.165 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 18:53:39.355 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 18:53:39.360 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 18:53:39.397 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 18:53:39.717 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 18:53:39.732 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 18:53:39.741 [main] ApplicationServer - Started ApplicationServer in 2.791 seconds (process running for 4.029)
+[INFO ] 2023-11-15 18:53:39.775 [main] ApplicationServer - 2023-11-15T18:53:39.775997600	Print Server Is Running!
+[INFO ] 2023-11-15 18:53:48.519 [RMI TCP Connection(3)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 18:53:48.591 [RMI TCP Connection(3)-172.20.10.7] PrintServantImplementation - 2023-11-15T18:53:48.565152800    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MDgyOCwiZXhwIjoxNzAwMDcxNDI4LCJyb2xlIjoiYWRtaW4ifQ.1u0H1_vZR1jv5duUfG8k-j3H0aJ7H5bxNwOq9CzRGbB0tbpZJE65eqc73W_Sb2i-01cuK0VdayHVFU8indu1QA
+
+[INFO ] 2023-11-15 18:55:34.658 [RMI TCP Connection(6)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 18:55:34.662 [RMI TCP Connection(6)-172.20.10.7] PrintServantImplementation - 2023-11-15T18:55:34.660470100    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MDkzNCwiZXhwIjoxNzAwMDcxNTM0LCJyb2xlIjoiYWRtaW4ifQ.woNDpz_owd1cgFQre2PtD-1P3IKWpRnya-3kfDQomNK6H_T1xLLoHfX0kphRvXSWJq2P95DCMK4RFE4aagqpiw
+
+[INFO ] 2023-11-15 18:55:59.385 [RMI TCP Connection(8)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 18:55:59.388 [RMI TCP Connection(8)-172.20.10.7] PrintServantImplementation - 2023-11-15T18:55:59.387742800    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MDk1OSwiZXhwIjoxNzAwMDcxNTU5LCJyb2xlIjoiYWRtaW4ifQ.PFsiOhW2tmnFaBu-D2BvV7wdtOeEmRLp4y_4sySd8dleeqvHi22y9DS_vqgMWK5j5AuV-CMFabzj8Ks8MRqJnQ
+
+[INFO ] 2023-11-15 18:56:14.179 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 18:56:14.181 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 18:56:14.182 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 18:56:21.508 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 78504 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 18:56:21.517 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 18:56:22.036 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 18:56:22.054 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 18:56:22.475 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 18:56:22.485 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 18:56:22.486 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 18:56:22.487 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 18:56:22.572 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 18:56:22.573 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1014 ms
+[INFO ] 2023-11-15 18:56:22.611 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 18:56:22.832 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 18:56:22.834 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 18:56:22.843 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 18:56:22.967 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 18:56:23.036 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 18:56:23.039 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 18:56:23.189 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 18:56:23.328 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 18:56:23.365 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 18:56:23.452 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 18:56:23.673 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 18:56:23.677 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 18:56:23.716 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 18:56:24.053 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 18:56:24.069 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 18:56:24.078 [main] ApplicationServer - Started ApplicationServer in 2.9 seconds (process running for 3.783)
+[INFO ] 2023-11-15 18:56:24.107 [main] ApplicationServer - 2023-11-15T18:56:24.107360500	Print Server Is Running!
+[INFO ] 2023-11-15 18:56:41.721 [RMI TCP Connection(4)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 18:56:41.800 [RMI TCP Connection(4)-172.20.10.7] PrintServantImplementation - 2023-11-15T18:56:41.774224100    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MTAwMSwiZXhwIjoxNzAwMDcxNjAxLCJyb2xlIjoiYWRtaW4ifQ.NB5l6l_0h1fVtm6-WV9gbkORV5Ij6WD6fH6deydIom7ywrsDt6h0ZuQx_K8TDlx16RBtdmHXVfLBHDlLc7yT8Q
+
+[INFO ] 2023-11-15 18:56:54.885 [RMI TCP Connection(4)-172.20.10.7] PrintServantImplementation - 2023-11-15T18:56:54.884403    Alice - Print job received: File [sample] on Printer [printer1]
+[INFO ] 2023-11-15 19:04:22.406 [RMI TCP Connection(7)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:04:22.409 [RMI TCP Connection(7)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:04:22.408061300    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MTQ2MiwiZXhwIjoxNzAwMDcyMDYyLCJyb2xlIjoiYWRtaW4ifQ.ZcmhqY53n2NN2THqQGPXzjmWrilEOajs-Q2emMfPISdRZd0QfVbb1N-aU7gbwQCHjrEVgz8xeH6EV01StxpaOQ
+
+[INFO ] 2023-11-15 19:07:12.942 [RMI TCP Connection(9)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:07:12.945 [RMI TCP Connection(9)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:07:12.944656800    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MTYzMiwiZXhwIjoxNzAwMDcyMjMyLCJyb2xlIjoiYWRtaW4ifQ.H4OHkmJPHzHgEYFtvUQErzA9DQVN10ATaSn7XqyJSvVKgycsvb_czvmYM0zaME2rq2aZyY17O431kDp_GXlwwg
+
+[INFO ] 2023-11-15 19:07:33.507 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 19:07:33.509 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 19:07:33.511 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 19:07:41.004 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 68584 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 19:07:41.014 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 19:07:41.530 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 19:07:41.547 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 19:07:41.975 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 19:07:41.986 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:07:41.987 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 19:07:41.988 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 19:07:42.071 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 19:07:42.071 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1012 ms
+[INFO ] 2023-11-15 19:07:42.109 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 19:07:42.319 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 19:07:42.321 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 19:07:42.331 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 19:07:42.444 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 19:07:42.495 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 19:07:42.497 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 19:07:42.629 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:07:42.747 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 19:07:42.776 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 19:07:42.845 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:07:43.055 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 19:07:43.060 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 19:07:43.094 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 19:07:43.416 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:07:43.432 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 19:07:43.440 [main] ApplicationServer - Started ApplicationServer in 2.742 seconds (process running for 3.612)
+[INFO ] 2023-11-15 19:07:43.465 [main] ApplicationServer - 2023-11-15T19:07:43.465089	Print Server Is Running!
+[INFO ] 2023-11-15 19:08:06.973 [RMI TCP Connection(4)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:08:07.063 [RMI TCP Connection(4)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:08:07.029187600    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MTY4NiwiZXhwIjoxNzAwMDcyMjg2LCJyb2xlIjoiYWRtaW4ifQ.8_sI5whwX_OmED-JFnzjNRCwJAjyntuhZgqg7A4SfWA_6DNVj-9FkzadRhGH1-QsN6x5YPxD0iHafCFUZy8nIA
+
+[WARN ] 2023-11-15 19:09:19.786 [HikariPool-1 housekeeper] HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m7s347ms137µs400ns).
+[INFO ] 2023-11-15 19:09:19.827 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 19:09:19.828 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 19:09:19.830 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 19:09:27.277 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 76316 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 19:09:27.284 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 19:09:27.822 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 19:09:27.842 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 19:09:28.275 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 19:09:28.285 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:09:28.285 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 19:09:28.286 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 19:09:28.370 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 19:09:28.370 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1035 ms
+[INFO ] 2023-11-15 19:09:28.414 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 19:09:28.619 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 19:09:28.621 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 19:09:28.631 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 19:09:28.739 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 19:09:28.792 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 19:09:28.794 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 19:09:28.921 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:09:29.045 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 19:09:29.076 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 19:09:29.151 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:09:29.334 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 19:09:29.340 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 19:09:29.382 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 19:09:29.715 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:09:29.730 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 19:09:29.740 [main] ApplicationServer - Started ApplicationServer in 2.782 seconds (process running for 3.63)
+[INFO ] 2023-11-15 19:09:29.766 [main] ApplicationServer - 2023-11-15T19:09:29.766291600	Print Server Is Running!
+[INFO ] 2023-11-15 19:09:39.914 [RMI TCP Connection(4)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:09:39.990 [RMI TCP Connection(4)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:09:39.961143400    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MTc3OSwiZXhwIjoxNzAwMDcyMzc5LCJyb2xlIjoiYWRtaW4ifQ.otoreXHIiyPazX_j9pP5uy5TYo_C9eYXy_qiXfhMtJkDQ59AG2PTCGWHJqjgWgL28cT9ha7lgQznL_nhEjc_bA
+
+[INFO ] 2023-11-15 19:11:38.816 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 19:11:38.818 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 19:11:38.819 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 19:11:46.625 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 16420 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 19:11:46.633 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 19:11:47.097 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 19:11:47.118 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 19:11:47.501 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 19:11:47.510 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:11:47.510 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 19:11:47.511 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 19:11:47.586 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 19:11:47.587 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 918 ms
+[INFO ] 2023-11-15 19:11:47.622 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 19:11:47.812 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 19:11:47.813 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 19:11:47.821 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 19:11:47.917 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 19:11:47.970 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 19:11:47.973 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 19:11:48.098 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:11:48.212 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 19:11:48.241 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 19:11:48.311 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:11:48.479 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 19:11:48.483 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 19:11:48.513 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 19:11:48.804 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:11:48.818 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 19:11:48.825 [main] ApplicationServer - Started ApplicationServer in 2.492 seconds (process running for 3.244)
+[INFO ] 2023-11-15 19:11:48.842 [main] ApplicationServer - 2023-11-15T19:11:48.842169700	Print Server Is Running!
+[INFO ] 2023-11-15 19:11:56.394 [RMI TCP Connection(3)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:11:56.460 [RMI TCP Connection(3)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:11:56.436784200    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MTkxNiwiZXhwIjoxNzAwMDcyNTE2LCJyb2xlIjoiYWRtaW4ifQ.Z7JtkUpQ7B6HZS4x_pJ8CIu3QLPix7w9LnKIHT2AsyKXmkdGjprJw4gayJs7sOth5pdMTESHQtYa2-RZ4m5gPw
+
+[INFO ] 2023-11-15 19:13:26.197 [RMI TCP Connection(6)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:13:26.200 [RMI TCP Connection(6)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:13:26.199885900    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MjAwNiwiZXhwIjoxNzAwMDcyNjA2LCJyb2xlIjoiYWRtaW4ifQ.T-Sliq7i8u7_1MX4hNkr38x2MiLF3DhfH2hCwrk_0SllSPC-V25ZpP2oO4dSvURDz1mVLMzcOGNKTm3bNfV8yA
+
+[INFO ] 2023-11-15 19:14:34.221 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 19:14:34.222 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 19:14:34.224 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 19:14:41.026 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 82556 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 19:14:41.033 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 19:14:41.508 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 19:14:41.524 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 19:14:41.892 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 19:14:41.899 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:14:41.900 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 19:14:41.901 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 19:14:41.967 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 19:14:41.967 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 893 ms
+[INFO ] 2023-11-15 19:14:41.999 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 19:14:42.189 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 19:14:42.190 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 19:14:42.199 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 19:14:42.286 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 19:14:42.334 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 19:14:42.336 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 19:14:42.455 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:14:42.553 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 19:14:42.577 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 19:14:42.642 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:14:42.807 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 19:14:42.811 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 19:14:42.839 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 19:14:43.122 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:14:43.134 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 19:14:43.140 [main] ApplicationServer - Started ApplicationServer in 2.396 seconds (process running for 3.208)
+[INFO ] 2023-11-15 19:14:43.168 [main] ApplicationServer - 2023-11-15T19:14:43.168261	Print Server Is Running!
+[INFO ] 2023-11-15 19:14:48.387 [RMI TCP Connection(4)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:14:48.443 [RMI TCP Connection(4)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:14:48.422998700    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MjA4OCwiZXhwIjoxNzAwMDcyNjg4LCJyb2xlIjoiYWRtaW4ifQ.Df9_lAM7mQsoYjU4redm3kZRrv68Zbl4miFuEopDBD0gwdscr6mvTisdtL7YGOhqCjOO1FDorWZGq50Vb4ilkg
+
+[INFO ] 2023-11-15 19:20:36.984 [RMI TCP Connection(8)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:20:36.987 [RMI TCP Connection(8)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:20:36.985604100    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MjQzNiwiZXhwIjoxNzAwMDczMDM2LCJyb2xlIjoiYWRtaW4ifQ.t-PEbOBRytRGvlCYrfKILuQBqLANrmLbmZZGVYrvQ-OHuHasWZzrPAWYeGQc2UNkGobGGqBbGn2vBrRYrea3sA
+
+[INFO ] 2023-11-15 19:29:27.721 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 19:29:27.724 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 19:29:27.725 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 19:29:31.126 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 67632 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 19:29:31.134 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 19:29:31.603 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 19:29:31.620 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 19:29:32.004 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 19:29:32.016 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:29:32.017 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 19:29:32.017 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 19:29:32.091 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 19:29:32.093 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 923 ms
+[INFO ] 2023-11-15 19:29:32.129 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 19:29:32.341 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 19:29:32.343 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 19:29:32.352 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 19:29:32.448 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 19:29:32.520 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 19:29:32.522 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 19:29:32.674 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:29:32.798 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 19:29:32.829 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 19:29:32.912 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:29:33.106 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 19:29:33.111 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 19:29:33.144 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 19:29:33.450 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:29:33.464 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 19:29:33.471 [main] ApplicationServer - Started ApplicationServer in 2.639 seconds (process running for 3.407)
+[INFO ] 2023-11-15 19:29:33.493 [main] ApplicationServer - 2023-11-15T19:29:33.493104700	Print Server Is Running!
+[INFO ] 2023-11-15 19:29:40.365 [RMI TCP Connection(6)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:29:40.438 [RMI TCP Connection(6)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:29:40.410994    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3Mjk4MCwiZXhwIjoxNzAwMDczNTgwLCJyb2xlIjoiYWRtaW4ifQ.X7xZGwkqpJamk7gOHS4Lot9rNPEV3HYQZzmhJEcsil1amdS8ZGupbxfPooK_5ojFKDbGUrQpgJJ9r9rNhkzT5Q
+
+[INFO ] 2023-11-15 19:30:44.191 [RMI TCP Connection(9)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:30:44.194 [RMI TCP Connection(9)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:30:44.193011900    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MzA0NCwiZXhwIjoxNzAwMDczNjQ0LCJyb2xlIjoiYWRtaW4ifQ.HfhrbSCaHeZRFnxz1kjXArJhoID-yzDQ1UQtaBU34uLOSC-3XO_qUtFpAbMXycec3Ox7XDQbEyF3vbena7Pj6A
+
+[INFO ] 2023-11-15 19:32:52.410 [RMI TCP Connection(13)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:32:52.413 [RMI TCP Connection(13)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:32:52.411396100    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MzE3MiwiZXhwIjoxNzAwMDczNzcyLCJyb2xlIjoiYWRtaW4ifQ.rRetXRZzlhhCSe95NjsxTvIwfWqnTNm_Qkkzmy9Qs0aAd9ZLv9iBTmqkb3B65lx6muH4n8d5gFGgcWKeK3Uxsg
+
+[INFO ] 2023-11-15 19:36:14.506 [RMI TCP Connection(15)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:36:14.509 [RMI TCP Connection(15)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:36:14.508724300    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MzM3NCwiZXhwIjoxNzAwMDczOTc0LCJyb2xlIjoiYWRtaW4ifQ.cSOz7DaV-2iNlmJiRBIJiHpp9jPP66YSiCkpRaPph4Ve56vvk71jTdqqQhm6HD2wPwY41-l1u4EcXHRii9g1kQ
+
+[INFO ] 2023-11-15 19:36:27.526 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 19:36:27.528 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 19:36:27.530 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 19:36:33.689 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 18740 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 19:36:33.696 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 19:36:34.173 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 19:36:34.190 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 19:36:34.562 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 19:36:34.572 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:36:34.573 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 19:36:34.573 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 19:36:34.649 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 19:36:34.649 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 913 ms
+[INFO ] 2023-11-15 19:36:34.683 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 19:36:34.875 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 19:36:34.876 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 19:36:34.884 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 19:36:34.966 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 19:36:35.012 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 19:36:35.013 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 19:36:35.129 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:36:35.249 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 19:36:35.281 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 19:36:35.357 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:36:35.549 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 19:36:35.553 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 19:36:35.594 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 19:36:36.059 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:36:36.079 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 19:36:36.089 [main] ApplicationServer - Started ApplicationServer in 2.691 seconds (process running for 3.448)
+[INFO ] 2023-11-15 19:36:36.118 [main] ApplicationServer - 2023-11-15T19:36:36.117123100	Print Server Is Running!
+[INFO ] 2023-11-15 19:36:41.117 [RMI TCP Connection(3)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:36:41.199 [RMI TCP Connection(3)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:36:41.167150800    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3MzQwMSwiZXhwIjoxNzAwMDc0MDAxLCJyb2xlIjoiYWRtaW4ifQ.RBXIzgGQPpTv91aK0UlIIzzZz-ga6w2UfawRnru360KfCIPPZkjbTtD_7eVijEBziGAJYPStkmOxy_r7zeXU7A
+
+[INFO ] 2023-11-15 19:55:49.645 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 19:55:49.647 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 19:55:49.649 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 19:55:57.867 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 45304 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 19:55:57.874 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 19:55:58.380 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 19:55:58.398 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 19:55:58.773 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 19:55:58.782 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:55:58.782 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 19:55:58.783 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 19:55:58.862 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 19:55:58.863 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 947 ms
+[INFO ] 2023-11-15 19:55:58.894 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 19:55:59.086 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 19:55:59.088 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 19:55:59.105 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 19:55:59.189 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 19:55:59.228 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 19:55:59.230 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 19:55:59.344 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:55:59.449 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 19:55:59.474 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 19:55:59.550 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 19:55:59.713 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 19:55:59.718 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 19:55:59.745 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 19:56:00.088 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 19:56:00.104 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 19:56:00.114 [main] ApplicationServer - Started ApplicationServer in 2.532 seconds (process running for 3.29)
+[INFO ] 2023-11-15 19:56:00.136 [main] ApplicationServer - 2023-11-15T19:56:00.136042500	Print Server Is Running!
+[INFO ] 2023-11-15 19:56:08.632 [RMI TCP Connection(4)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 19:56:08.694 [RMI TCP Connection(4)-172.20.10.7] PrintServantImplementation - 2023-11-15T19:56:08.672501700    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3NDU2OCwiZXhwIjoxNzAwMDc1MTY4LCJyb2xlIjoiYWRtaW4ifQ.8vmgWlukSWTLAOtwuo2ZfV-r151vkU6nUSeTQX0-vtfzKSZSvBur5015pUFoEXQHppaZ0C15AIlT4DZhqg-9LA
+
+[ERROR] 2023-11-15 19:56:40.861 [RMI TCP Connection(5)-172.20.10.7] DBConnection - Column "USERNAME" not found; SQL statement:
+INSERT INTO user_details (id, username, password, dob) VALUES (?, ?, ?, ?) [42122-214]
+[INFO ] 2023-11-15 20:05:24.218 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 20:05:24.220 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 20:05:24.221 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 20:05:31.387 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 80336 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 20:05:31.396 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 20:05:31.851 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 20:05:31.869 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 20:05:32.229 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 20:05:32.237 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 20:05:32.238 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 20:05:32.238 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 20:05:32.310 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 20:05:32.311 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 877 ms
+[INFO ] 2023-11-15 20:05:32.352 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 20:05:32.545 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 20:05:32.546 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 20:05:32.556 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 20:05:32.644 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 20:05:32.694 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 20:05:32.700 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 20:05:32.820 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 20:05:32.923 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 20:05:32.950 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 20:05:33.020 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 20:05:33.187 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 20:05:33.191 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 20:05:33.223 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 20:05:33.523 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 20:05:33.538 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 20:05:33.547 [main] ApplicationServer - Started ApplicationServer in 2.479 seconds (process running for 3.242)
+[INFO ] 2023-11-15 20:05:33.569 [main] ApplicationServer - 2023-11-15T20:05:33.569452	Print Server Is Running!
+[INFO ] 2023-11-15 20:05:41.239 [RMI TCP Connection(3)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 20:05:41.312 [RMI TCP Connection(3)-172.20.10.7] PrintServantImplementation - 2023-11-15T20:05:41.283718600    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3NTE0MSwiZXhwIjoxNzAwMDc1NzQxLCJyb2xlIjoiYWRtaW4ifQ.rRIglRfSnYZ5iS-RD2OQExFSfQO1Ue6OWSrW4oeGzdh4U88bHsCZ5bmPCkRIRL6B6LPf2FgV28QCsmLBhJnUCA
+
+[ERROR] 2023-11-15 20:06:10.577 [RMI TCP Connection(4)-172.20.10.7] DBConnection - Column "USERNAME" not found; SQL statement:
+INSERT INTO user_details (id, username, password, dob) VALUES (?, ?, ?, ?) [42122-214]
+[INFO ] 2023-11-15 20:07:37.887 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 20:07:37.889 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 20:07:37.891 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 20:07:43.434 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 82536 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 20:07:43.443 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 20:07:43.900 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 20:07:43.916 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 20:07:44.290 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 20:07:44.297 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 20:07:44.297 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 20:07:44.298 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 20:07:44.380 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 20:07:44.380 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 897 ms
+[INFO ] 2023-11-15 20:07:44.414 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 20:07:44.591 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 20:07:44.593 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 20:07:44.602 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 20:07:44.694 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 20:07:44.746 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 20:07:44.748 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 20:07:44.861 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 20:07:44.963 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 20:07:44.989 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 20:07:45.053 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 20:07:45.221 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 20:07:45.225 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 20:07:45.254 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 20:07:45.559 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 20:07:45.575 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 20:07:45.584 [main] ApplicationServer - Started ApplicationServer in 2.441 seconds (process running for 3.185)
+[INFO ] 2023-11-15 20:07:45.604 [main] ApplicationServer - 2023-11-15T20:07:45.604188700	Print Server Is Running!
+[INFO ] 2023-11-15 20:07:50.790 [RMI TCP Connection(4)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 20:07:50.853 [RMI TCP Connection(4)-172.20.10.7] PrintServantImplementation - 2023-11-15T20:07:50.833326200    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3NTI3MCwiZXhwIjoxNzAwMDc1ODcwLCJyb2xlIjoiYWRtaW4ifQ.a5n2GChF4BCM7kU-KKD8ccFwXnV7_Wcw7NmMlCMD85ulAewNGkQ8NaEtg5nxm4LQEPYd7rbRNUiRjveiE2lkig
+
+[INFO ] 2023-11-15 20:10:39.871 [RMI TCP Connection(10)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 20:10:39.874 [RMI TCP Connection(10)-172.20.10.7] PrintServantImplementation - 2023-11-15T20:10:39.873181    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3NTQzOSwiZXhwIjoxNzAwMDc2MDM5LCJyb2xlIjoiYWRtaW4ifQ.aipOpqSJZgGf2SjZif0aZIfs1t3VORFjj6ZdsVW0wHneTteoa5NZsN__PLWn_2L9rSPHBNUR0LwhzJ0XwPsiJg
+
+[INFO ] 2023-11-15 20:11:09.570 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 20:11:09.572 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 20:11:09.574 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-15 20:11:14.349 [main] ApplicationServer - Starting ApplicationServer using Java 20.0.1 with PID 62572 (C:\Users\Razer\IdeaProjects\ClientServerApplication\target\classes started by Razer in C:\Users\Razer\IdeaProjects\ClientServerApplication)
+[INFO ] 2023-11-15 20:11:14.357 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-15 20:11:14.871 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-15 20:11:14.891 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-15 20:11:15.302 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-15 20:11:15.312 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 20:11:15.313 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-15 20:11:15.313 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-15 20:11:15.395 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-15 20:11:15.395 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 996 ms
+[INFO ] 2023-11-15 20:11:15.436 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-15 20:11:15.676 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-15 20:11:15.678 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-15 20:11:15.689 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-15 20:11:15.833 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-15 20:11:15.900 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-15 20:11:15.903 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-15 20:11:16.050 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 20:11:16.201 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-15 20:11:16.249 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-15 20:11:16.354 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-15 20:11:16.605 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-15 20:11:16.611 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-15 20:11:16.648 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-15 20:11:17.026 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-15 20:11:17.043 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-15 20:11:17.053 [main] ApplicationServer - Started ApplicationServer in 3.027 seconds (process running for 3.898)
+[INFO ] 2023-11-15 20:11:17.077 [main] ApplicationServer - 2023-11-15T20:11:17.076287300	Print Server Is Running!
+[INFO ] 2023-11-15 20:11:31.633 [RMI TCP Connection(4)-172.20.10.7] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-15 20:11:31.712 [RMI TCP Connection(4)-172.20.10.7] PrintServantImplementation - 2023-11-15T20:11:31.682958600    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDA3NTQ5MSwiZXhwIjoxNzAwMDc2MDkxLCJyb2xlIjoiYWRtaW4ifQ.LB1UxG_oo7rMXcIJPgNciQxT2fnHfjw0iMQUX61iQcCkvkfQnVId-dU1LsMJ95JmtH3QOvpcGXtFSSMwVk4EAw
+
+[WARN ] 2023-11-15 20:13:36.826 [HikariPool-1 housekeeper] HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m14s211ms371µs900ns).
+[INFO ] 2023-11-15 20:13:36.868 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-11-15 20:13:36.870 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2023-11-15 20:13:36.871 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.

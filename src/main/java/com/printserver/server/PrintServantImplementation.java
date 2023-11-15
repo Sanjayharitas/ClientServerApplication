@@ -2,6 +2,9 @@ package com.printserver.server;
 
 import com.printserver.interfaces.IAuthService;
 import com.printserver.interfaces.IPrintService;
+import com.printserver.interfaces.IUserService;
+import com.printserver.models.Role;
+import com.printserver.models.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -24,10 +27,12 @@ public class PrintServantImplementation extends UnicastRemoteObject implements I
     private boolean isRunning = true;
     public static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     private final IAuthService authService;
+    private final IUserService userService;
 
-    public PrintServantImplementation(IAuthService authService) throws RemoteException {
+    public PrintServantImplementation(IAuthService authService, IUserService userService) throws RemoteException {
 //        super();
         this.authService = authService;
+        this.userService = userService;
         this.printQueues = new HashMap<>();
         this.configParameters = new HashMap<>();
     }
@@ -188,7 +193,55 @@ public class PrintServantImplementation extends UnicastRemoteObject implements I
 
     @Override
     public String getRole(String token) throws RemoteException {
-        return authService.getRoleFromToken(token);
+        if(authService.validateToken(token)){
+            return authService.getRoleFromToken(token);
+        }
+        else {
+            throw new RemoteException("Token validation failed.");
+        }
+    }
+
+    @Override
+    public User getUser(String username, String token) throws RemoteException {
+        if(authService.validateToken(token)){
+            User user = userService.getUser(username);
+            return user;
+        }
+        else {
+            throw new RemoteException("Token validation failed.");
+        }
+    }
+
+    @Override
+    public List<User> getUsers(String token) throws RemoteException {
+        if(authService.validateToken(token)){
+            return userService.getUsers();
+        }
+        else {
+            throw new RemoteException("Token validation failed.");
+        }
+    }
+
+    @Override
+    public List<Role> getRolesList(String token) throws RemoteException {
+        if(authService.validateToken(token)){
+            return userService.getRolesList();
+        }
+        else {
+            throw new RemoteException("Token validation failed.");
+        }
+    }
+
+    @Override
+    public String registerUser(User user, String token) throws RemoteException {
+        if(authService.validateToken(token)){
+            user.password = PasswordProtection.hashPassword(user.password);
+            userService.register(user);
+            return "Success";
+        }
+        else {
+            throw new RemoteException("Token validation failed.");
+        }
     }
 }
 
