@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 // Connection to H2 DB is made in this class
 public class DBConnection {
@@ -155,8 +156,7 @@ public class DBConnection {
             List<Role> roles = new ArrayList<>();
             conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
 
-            String query = "SELECT r.* " +
-                    "FROM roles r ";
+            String query = "SELECT * FROM roles";
 
             pstmt = conn.prepareStatement(query);
             rs = pstmt.executeQuery();
@@ -274,5 +274,52 @@ public class DBConnection {
         }
     }
 
+    public static void updateRole(int userId, String newRole){
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try{
+            conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
+
+            String query = "SELECT * FROM roles WHERE role_name = ?";
+            Role role = new Role();
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, newRole);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                role.role_id = rs.getInt("role_id");
+                role.role_name = rs.getString("role_name");
+            }
+
+            if(!Objects.equals(role.role_name, "")){
+                int currentRoleId = 0;
+                String fetchUserRole = "SELECT * FROM user_roles WHERE user_id = ? LIMIT 1";
+                pstmt = conn.prepareStatement(fetchUserRole);
+                pstmt.setInt(1,userId);
+                rs = pstmt.executeQuery();
+                if(rs.next()){
+                    currentRoleId = rs.getInt("role_id");
+                }
+
+                if(currentRoleId > 0){
+                    String updateRoleQuery = "UPDATE user_roles SET role_id = ? WHERE user_id = ?";
+                    pstmt = conn.prepareStatement(updateRoleQuery);
+                    pstmt.setInt(1, role.role_id);
+                    pstmt.setInt(2, userId);
+                    pstmt.executeUpdate();
+                }
+            }
+
+        }catch (SQLException e) {
+            LOGGER.error(e.getMessage());
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
 }

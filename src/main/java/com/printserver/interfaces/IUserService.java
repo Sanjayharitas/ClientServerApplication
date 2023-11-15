@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface IUserService {
     void register(User user);
-    void delete(User user);
-    void updateRole(User user, String newRole);
+    void delete(String username);
+    void updateRole(int userId, String newRole);
     User getUser(String username);
     List<User> getUsers();
     List<Role> getRolesList();

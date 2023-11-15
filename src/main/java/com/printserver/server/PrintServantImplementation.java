@@ -243,5 +243,27 @@ public class PrintServantImplementation extends UnicastRemoteObject implements I
             throw new RemoteException("Token validation failed.");
         }
     }
+
+    @Override
+    public String deleteUser(String username, String token) throws RemoteException {
+        if(authService.validateToken(token)){
+            userService.delete(username);
+            return "Success";
+        }
+        else {
+            throw new RemoteException("Token validation failed.");
+        }
+    }
+
+    @Override
+    public String updateRole(int userId, String newRole, String token) throws RemoteException {
+        if(authService.validateToken(token)){
+            userService.updateRole(userId, newRole);
+            return "Success";
+        }
+        else {
+            throw new RemoteException("Token validation failed.");
+        }
+    }
 }
 

@@ -14,13 +14,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void delete(User user) {
-
+    public void delete(String username) {
+        DBConnection.deleteUser(username);
     }
 
     @Override
-    public void updateRole(User user, String newRole) {
-
+    public void updateRole(int userId, String newRole) {
+        DBConnection.updateRole(userId, newRole);
     }
 
     @Override

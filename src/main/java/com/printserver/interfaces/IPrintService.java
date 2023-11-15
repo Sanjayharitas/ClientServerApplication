@@ -20,10 +20,12 @@ public interface IPrintService extends Remote {
     String readConfig(String parameter, String token) throws RemoteException;
     String setConfig(String parameter, String value, String token) throws RemoteException;
     String auth(String userName, String password) throws RemoteException;
-    String getRole(String token)throws RemoteException;
-    User getUser(String username, String token)throws RemoteException;
-    List<User> getUsers(String token)throws RemoteException;
+    String getRole(String token) throws RemoteException;
+    User getUser(String username, String token) throws RemoteException;
+    List<User> getUsers(String token) throws RemoteException;
     List<Role> getRolesList(String token)throws RemoteException;
     String registerUser(User user, String token) throws RemoteException;
+    String deleteUser(String username, String token) throws RemoteException;
+    String updateRole(int userId, String newRole, String token) throws RemoteException;
 }
 

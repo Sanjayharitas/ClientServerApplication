@@ -205,10 +205,16 @@ public class Client {
         System.out.println(service.registerUser(user, token));
     }
     private static void task_roleManagement(Scanner scanner, IPrintService service, String token) throws RemoteException {
-        // write code for user deletion
+        System.out.print("Enter user id: ");
+        int userId = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter new role (admin, superuser, poweruser, user): ");
+        String newRole = scanner.nextLine();
+        System.out.println(service.updateRole(userId,newRole, token));
     }
     private static void task_deleteUser(Scanner scanner, IPrintService service, String token) throws RemoteException {
-        // write code for user deletion
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.println(service.deleteUser(username, token));
     }
     private static void task_getUser(Scanner scanner, IPrintService service, String token) throws RemoteException {
         System.out.print("Enter username: ");
