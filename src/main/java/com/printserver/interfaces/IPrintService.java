@@ -16,5 +16,6 @@ public interface IPrintService extends Remote {
     String readConfig(String parameter, String token) throws RemoteException;
     String setConfig(String parameter, String value, String token) throws RemoteException;
     String auth(String userName, String password) throws RemoteException;
+    String getRole(String token)throws RemoteException;
 }
 
