@@ -1,7 +1,7 @@
 package com.printserver.client;
 
 import com.google.common.hash.Hashing;
-import com.printserver.interfaces.PrintService;
+import com.printserver.interfaces.IPrintService;
 
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Client {
 
     public static void main(String[] args) throws MalformedURLException, NotBoundException, RemoteException {
-        PrintService service = (PrintService) Naming.lookup("rmi://localhost:5099/PrintService");
+        IPrintService service = (IPrintService) Naming.lookup("rmi://localhost:5099/PrintService");
         int counter = 0;
         String token = null;
         boolean isRunning = false;
@@ -48,10 +48,13 @@ public class Client {
                 }
             }
         }
-        serverTasks(isRunning, scanner, service, token);
+
+        if(isRunning){
+            serverTasks(isRunning, scanner, service, token);
+        }
     }
 
-    private static void serverTasks(boolean isRunning, Scanner scanner, PrintService service, String token) throws RemoteException {
+    private static void serverTasks(boolean isRunning, Scanner scanner, IPrintService service, String token) throws RemoteException {
         while (isRunning) {
             printTaskList();
             String taskInput = scanner.nextLine();
