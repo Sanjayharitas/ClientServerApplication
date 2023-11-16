@@ -4,6 +4,7 @@ import com.printserver.interfaces.IAuthService;
 import com.printserver.interfaces.IUserService;
 import com.printserver.server.AuthService;
 import com.printserver.server.PrintServantImplementation;
+import com.printserver.server.Roles;
 import com.printserver.server.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,6 +21,7 @@ public class ApplicationServer {
     public static void main(String[] args) {
         SpringApplication.run(ApplicationServer.class, args);
         try {
+            Roles.createRolesFile();
             IAuthService authService = new AuthService();
             IUserService userService=new UserService();
             Registry registry = LocateRegistry.createRegistry(5099);

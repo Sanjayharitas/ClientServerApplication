@@ -27,5 +27,6 @@ public interface IPrintService extends Remote {
     String registerUser(User user, String token) throws RemoteException;
     String deleteUser(String username, String token) throws RemoteException;
     String updateRole(int userId, String newRole, String token) throws RemoteException;
+    boolean checkAuthority(String task, String token) throws RemoteException;
 }
 

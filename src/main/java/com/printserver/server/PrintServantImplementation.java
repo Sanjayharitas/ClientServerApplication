@@ -29,26 +29,32 @@ public class PrintServantImplementation extends UnicastRemoteObject implements I
     private final IAuthService authService;
     private final IUserService userService;
 
+    HashMap<String, String[]> roleMap;
+
     public PrintServantImplementation(IAuthService authService, IUserService userService) throws RemoteException {
 //        super();
         this.authService = authService;
         this.userService = userService;
         this.printQueues = new HashMap<>();
         this.configParameters = new HashMap<>();
+        roleMap = Roles.readFile();
     }
 
     @Override
     public String print(String fileName, String printer, String token) throws RemoteException {
         if (authService.validateToken(token)) {
-            List<String> printerQueue = printQueues.get(printer);
-            if (printerQueue == null) {
-                printerQueue = new ArrayList<>();
-                printQueues.put(printer, printerQueue);
+            if(checkAuthority("print",token)){
+                List<String> printerQueue = printQueues.get(printer);
+                if (printerQueue == null) {
+                    printerQueue = new ArrayList<>();
+                    printQueues.put(printer, printerQueue);
+                }
+                printerQueue.add(fileName);
+                System.out.println(java.time.LocalDateTime.now() + "    " + authService.getUsernameFromJWT(token) + " - Print job received: File [" + fileName + "] on Printer [" + printer + "]");
+                LOGGER.info(java.time.LocalDateTime.now() + "    " + authService.getUsernameFromJWT(token) + " - Print job received: File [" + fileName + "] on Printer [" + printer + "]");
+                return "Success.";
             }
-            printerQueue.add(fileName);
-            System.out.println(java.time.LocalDateTime.now() + "    " + authService.getUsernameFromJWT(token) + " - Print job received: File [" + fileName + "] on Printer [" + printer + "]");
-            LOGGER.info(java.time.LocalDateTime.now() + "    " + authService.getUsernameFromJWT(token) + " - Print job received: File [" + fileName + "] on Printer [" + printer + "]");
-            return "Success.";
+            return "No Access";
         } else {
             LOGGER.error("Token validation failed!!");
             throw new RemoteException("Token validation failed.");
@@ -264,6 +270,21 @@ public class PrintServantImplementation extends UnicastRemoteObject implements I
         else {
             throw new RemoteException("Token validation failed.");
         }
+    }
+
+    @Override
+    public boolean checkAuthority(String task, String token) throws RemoteException {
+        String role = authService.getRole(authService.getUsernameFromJWT(token));
+
+        if(!Objects.equals(role, "")){
+            String[] tasks = roleMap.get(role);
+            if(tasks != null){
+                List<String> taskList = Arrays.asList(tasks);
+                return taskList.contains(task);
+            }
+        }
+
+        return false;
     }
 }
 
