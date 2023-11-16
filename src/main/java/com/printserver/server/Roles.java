@@ -1,6 +1,9 @@
 package com.printserver.server;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Roles {
 
@@ -40,30 +43,41 @@ public class Roles {
         }
     }
 
-    public static HashMap<String, String[]> readFile() {
+    public static HashMap<String, List<String>> readFile() {
         String fileName = "roles.txt";
-        HashMap<String, String[]> roleMap = new HashMap<>();
+        HashMap<String, List<String>> permissionsMap = new HashMap<>();
 
-        try {
-            FileReader reader = new FileReader(fileName);
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
 
-            BufferedReader buffer = new BufferedReader(reader);
+            while ((line = br.readLine()) != null) {
+                // read the role name from the first line
+                String role = line.trim();
 
-            String line = buffer.readLine();
-            while (line != null) {
-                if (line.contains(",")) {
-                    String[] taskArray = line.split(",");
-                    String role = buffer.readLine();
-                    roleMap.put(role, taskArray);
+                // read the task list from the second line
+                line = br.readLine();
+                if (line != null) {
+                    // split the tasks by commas
+                    String[] parts = line.split(",");
+
+                    // create a new list to store the tasks
+                    List<String> permissions = new ArrayList<>();
+
+                    // copy the tasks from the parts array to the list
+                    for (String part : parts) {
+                        permissions.add(part.trim());
+                    }
+
+                    // put the role and tasks in the hashmap
+                    permissionsMap.put(role, permissions);
                 }
-                line = buffer.readLine();
             }
-            buffer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return roleMap;
+        return permissionsMap;
     }
+
 
 }

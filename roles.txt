@@ -1,0 +1,8 @@
+admin
+print,print_queue,top_queue,start,stop,restart,status,read_config,set_config,register_user,delete_user,role_management,get_user,get_users_ist,get_roles_list
+superuser
+start,stop,restart,status,read_config,set_config
+poweruser
+print,print_queue,top_queue,restart
+user
+print,print_queue
