@@ -5130,3 +5130,41 @@ CREATE TABLE access_control_list ( role_id INT NOT NULL, action_id INT NOT NULL,
 [INFO ] 2023-11-24 02:13:57.585 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] 2023-11-24 02:13:57.588 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
 [INFO ] 2023-11-24 02:13:57.591 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2023-11-24 14:17:00.227 [main] ApplicationServer - Starting ApplicationServer using Java 17.0.8 with PID 12840 (D:\Assignments\DS\ClientServerApplication\target\classes started by sanja in D:\Assignments\DS\ClientServerApplication)
+[INFO ] 2023-11-24 14:17:00.247 [main] ApplicationServer - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-11-24 14:17:01.132 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-11-24 14:17:01.167 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JPA repository interfaces.
+[INFO ] 2023-11-24 14:17:02.061 [main] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-11-24 14:17:02.076 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-24 14:17:02.078 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-11-24 14:17:02.078 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+[INFO ] 2023-11-24 14:17:02.210 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-11-24 14:17:02.213 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1884 ms
+[INFO ] 2023-11-24 14:17:02.285 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2023-11-24 14:17:02.644 [main] HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./testdb user=SA
+[INFO ] 2023-11-24 14:17:02.646 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2023-11-24 14:17:02.657 [main] H2ConsoleAutoConfiguration - H2 console available at '/h2-ui'. Database available at 'jdbc:h2:file:./testdb'
+[INFO ] 2023-11-24 14:17:02.879 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-11-24 14:17:02.990 [main] Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+[INFO ] 2023-11-24 14:17:02.993 [main] Environment - HHH000406: Using bytecode reflection optimizer
+[INFO ] 2023-11-24 14:17:03.253 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-24 14:17:03.509 [main] SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[INFO ] 2023-11-24 14:17:03.630 [main] dialect - HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+[INFO ] 2023-11-24 14:17:03.761 [main] BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+[INFO ] 2023-11-24 14:17:04.017 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-11-24 14:17:04.021 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-11-24 14:17:04.069 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-11-24 14:17:04.665 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-11-24 14:17:04.718 [main] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2023-11-24 14:17:04.737 [main] ApplicationServer - Started ApplicationServer in 4.988 seconds (process running for 5.907)
+[INFO ] 2023-11-24 14:17:04.814 [main] ApplicationServer - 2023-11-24T14:17:04.814942300	Print Server Is Running!
+[INFO ] 2023-11-24 14:17:18.941 [RMI TCP Connection(2)-10.209.201.85] PasswordProtection - Authentication for Alice failed.
+[INFO ] 2023-11-24 14:17:26.361 [RMI TCP Connection(2)-10.209.201.85] PasswordProtection - Authentication for Alice successful.
+[INFO ] 2023-11-24 14:17:26.482 [RMI TCP Connection(2)-10.209.201.85] PrintServantImplementation - 2023-11-24T14:17:26.432328200    Token generated for Alice- token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBbGljZSIsImlhdCI6MTcwMDgzMTg0NiwiZXhwIjoxNzAwODMyNDQ2LCJyb2xlIjoiYWRtaW4ifQ.7yLex080ERDdyxr-ohU3Rrk-bNlWqrmJIWX6F55TMvT7PtN7SW2jZlOvK_TCAWQLnEipkCIHT15McJHQcxynCA
+
+[INFO ] 2023-11-24 14:17:36.151 [RMI TCP Connection(2)-10.209.201.85] PrintServantImplementation - User Alice accessing task- read_config
+[INFO ] 2023-11-24 14:17:49.256 [RMI TCP Connection(2)-10.209.201.85] PrintServantImplementation - User Alice accessing task- print
+[INFO ] 2023-11-24 14:17:49.261 [RMI TCP Connection(2)-10.209.201.85] PrintServantImplementation - 2023-11-24T14:17:49.260522400    Alice - Print job received: File [tt] on Printer [tt]
+[INFO ] 2023-11-24 14:18:01.127 [RMI TCP Connection(2)-10.209.201.85] PrintServantImplementation - User Alice accessing task- print_queue
+[INFO ] 2023-11-24 14:18:12.130 [RMI TCP Connection(2)-10.209.201.85] PrintServantImplementation - User Alice accessing task- get_users_list
+[INFO ] 2023-11-24 14:18:20.756 [RMI TCP Connection(2)-10.209.201.85] PrintServantImplementation - User Alice accessing task- get_roles_list

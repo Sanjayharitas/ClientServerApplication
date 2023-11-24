@@ -28,8 +28,6 @@ public class PrintServantImplementation extends UnicastRemoteObject implements I
     private final IAuthService authService;
     private final IUserService userService;
 
-    private static HashMap<String, List<String>> roleMap;
-
     public PrintServantImplementation(IAuthService authService, IUserService userService) throws RemoteException {
 //        super();
         this.authService = authService;
