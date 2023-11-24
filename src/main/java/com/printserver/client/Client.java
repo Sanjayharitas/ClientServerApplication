@@ -53,22 +53,27 @@ public class Client {
             }
         }
 
-        if(isRunning){
+        if (isRunning) {
             serverTasks(isRunning, scanner, printService, token);
         }
     }
+
     private static void serverTasks(boolean isRunning, Scanner scanner, IPrintService service, String token) throws RemoteException {
         while (isRunning) {
 
             String role = service.getRole(token);
             printTaskList(role);
-            
+
             String taskInput = scanner.nextLine();
 
-            if(Objects.equals(role, "admin")) isRunning = admin_perform_tasks(isRunning, scanner, service, token, taskInput);
-            else if(Objects.equals(role, "superuser")) isRunning = superuser_perform_tasks(isRunning, scanner, service, token, taskInput);
-            else if(Objects.equals(role, "poweruser")) isRunning = poweruser_perform_tasks(isRunning, scanner, service, token, taskInput);
-            else if(Objects.equals(role, "user")) isRunning = ordinaryuser_perform_tasks(isRunning, scanner, service, token, taskInput);
+            if (Objects.equals(role, "admin"))
+                isRunning = admin_perform_tasks(isRunning, scanner, service, token, taskInput);
+            else if (Objects.equals(role, "superuser"))
+                isRunning = superuser_perform_tasks(isRunning, scanner, service, token, taskInput);
+            else if (Objects.equals(role, "poweruser"))
+                isRunning = poweruser_perform_tasks(isRunning, scanner, service, token, taskInput);
+            else if (Objects.equals(role, "user"))
+                isRunning = ordinaryuser_perform_tasks(isRunning, scanner, service, token, taskInput);
         }
     }
 
@@ -95,6 +100,7 @@ public class Client {
         }
         return isRunning;
     }
+
     private static boolean superuser_perform_tasks(boolean isRunning, Scanner scanner, IPrintService service, String token, String taskInput) throws RemoteException {
         switch (taskInput) {
             case "1" -> task_start(service, token);
@@ -109,6 +115,7 @@ public class Client {
         }
         return isRunning;
     }
+
     private static boolean poweruser_perform_tasks(boolean isRunning, Scanner scanner, IPrintService service, String token, String taskInput) throws RemoteException {
         switch (taskInput) {
             case "1" -> task_print(scanner, service, token);
@@ -121,11 +128,12 @@ public class Client {
         }
         return isRunning;
     }
+
     private static boolean ordinaryuser_perform_tasks(boolean isRunning, Scanner scanner, IPrintService service, String token, String taskInput) throws RemoteException {
         switch (taskInput) {
             case "1" -> task_print(scanner, service, token);
             case "2" -> task_printQueue(scanner, service, token);
-            case "5" -> isRunning = false;
+            case "3" -> isRunning = false;
             case "x" -> isRunning = false;
             default -> System.out.println("Invalid option, please choose a correct option from the list: ");
         }
@@ -186,6 +194,7 @@ public class Client {
         String printer = scanner.nextLine();
         System.out.println(service.print(fileName, printer, token));
     }
+
     private static void task_registerUser(Scanner scanner, IPrintService service, String token) throws RemoteException {
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
@@ -198,65 +207,68 @@ public class Client {
 
         User user = new User();
         user.username = username;
-        user.password = password;
+        String sha256hex = getSha256hex(password);
+        user.password = sha256hex;
         user.dob = dob;
         user.role = role;
 
         System.out.println(service.registerUser(user, token));
     }
+
     private static void task_roleManagement(Scanner scanner, IPrintService service, String token) throws RemoteException {
         System.out.print("Enter user id: ");
         int userId = Integer.parseInt(scanner.nextLine());
         System.out.print("Enter new role (admin, superuser, poweruser, user): ");
         String newRole = scanner.nextLine();
-        System.out.println(service.updateRole(userId,newRole, token));
+        System.out.println(service.updateRole(userId, newRole, token));
     }
+
     private static void task_deleteUser(Scanner scanner, IPrintService service, String token) throws RemoteException {
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.println(service.deleteUser(username, token));
     }
+
     private static void task_getUser(Scanner scanner, IPrintService service, String token) throws RemoteException {
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         User user = service.getUser(username, token);
-        if(user != null){
+        if (user != null) {
             System.out.println("===============================");
             System.out.println("\t Id: " + user.id);
             System.out.println("\t Username: " + user.username);
             System.out.println("\t Role: " + user.role);
             System.out.println("===============================");
-        }
-        else{
+        } else {
             System.out.println("User not found!");
         }
     }
+
     private static void task_getUsersList(IPrintService service, String token) throws RemoteException {
         List<User> users = service.getUsers(token);
-        if(users.size() > 0){
+        if (users != null && users.size() > 0) {
             System.out.println("========================================");
-            for (User user: users) {
+            for (User user : users) {
                 System.out.print(" Id: " + user.id);
                 System.out.print("\t Username: " + user.username);
-                System.out.print("\t Role: " + user.role +"\n");
+                System.out.print("\t Role: " + user.role + "\n");
             }
             System.out.println("========================================");
-        }
-        else{
+        } else {
             System.out.println("Users not found!");
         }
     }
+
     private static void task_getRolesList(Scanner scanner, IPrintService service, String token) throws RemoteException {
         List<Role> roles = service.getRolesList(token);
-        if(roles.size() > 0){
+        if (roles != null && roles.size() > 0) {
             System.out.println("========================================");
-            for (Role role: roles) {
+            for (Role role : roles) {
                 System.out.print(" Role Id: " + role.role_id);
                 System.out.print("\t Role Name: " + role.role_name + "\n");
             }
             System.out.println("========================================");
-        }
-        else{
+        } else {
             System.out.println("Roles not found!");
         }
     }
@@ -268,14 +280,14 @@ public class Client {
     }
 
     private static void printTaskList(String role) {
-        if(Objects.equals(role, "admin")) adminTasksList();
-        else if(Objects.equals(role, "superuser")) superUserTasksList();
-        else if(Objects.equals(role, "poweruser")) powerUserTasksList();
-        else if(Objects.equals(role, "user")) ordinaryUserTasksList();
+        if (Objects.equals(role, "admin")) adminTasksList();
+        else if (Objects.equals(role, "superuser")) superUserTasksList();
+        else if (Objects.equals(role, "poweruser")) powerUserTasksList();
+        else if (Objects.equals(role, "user")) ordinaryUserTasksList();
         else System.out.println("Invalid Role or Token");
     }
 
-    private static void adminTasksList(){
+    private static void adminTasksList() {
         System.out.println("\n1. add a print job");
         System.out.println("2. print the job list");
         System.out.println("3. move a job to the top of the queue");
@@ -294,7 +306,8 @@ public class Client {
         System.out.println("16. exit -> (x)");
         System.out.print("\nWhat can I do for you: ");
     }
-    private static void superUserTasksList(){
+
+    private static void superUserTasksList() {
         System.out.println("1. start the print server");
         System.out.println("2. stop the print server");
         System.out.println("3. restart the print server");
@@ -304,7 +317,8 @@ public class Client {
         System.out.println("7. exit -> (x)");
         System.out.print("\nWhat can I do for you: ");
     }
-    private static void powerUserTasksList(){
+
+    private static void powerUserTasksList() {
         System.out.println("\n1. add a print job");
         System.out.println("2. print the job list");
         System.out.println("3. move a job to the top of the queue");
@@ -312,7 +326,8 @@ public class Client {
         System.out.println("5. exit -> (x)");
         System.out.print("\nWhat can I do for you: ");
     }
-    private static void ordinaryUserTasksList(){
+
+    private static void ordinaryUserTasksList() {
         System.out.println("\n1. add a print job");
         System.out.println("2. print the job list");
         System.out.println("3. exit -> (x)");

@@ -25,7 +25,7 @@ public class PasswordProtection {
 
     public static boolean verifyPassword(String passwordToVerify, String user) {
         String passwordFromDB = DBConnection.getPW(user);
-        if (BCrypt.checkpw(passwordToVerify, passwordFromDB)) {
+        if (passwordFromDB != null && BCrypt.checkpw(passwordToVerify, passwordFromDB)) {
             LOGGER.info("Authentication for " + user + " successful.");
             System.out.println("Password matches!");
             return true;
@@ -35,9 +35,6 @@ public class PasswordProtection {
             return false;
         }
     }
-
-
-
 
 
 //    public static void main(String[] args) {

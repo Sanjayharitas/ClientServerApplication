@@ -8,4 +8,9 @@ public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
     public int role_id;
     public String role_name;
+
+    @Override
+    public String toString() {
+        return role_name;
+    }
 }

@@ -36,9 +36,9 @@ public class DBConnection {
         return null;
     }
 
-    public static String getRole(String username){
+    public static String getRole(String username) {
         Connection conn = null;
-        try{
+        try {
             conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
 
             String query = "SELECT roles.role_name " +
@@ -55,7 +55,7 @@ public class DBConnection {
                     }
                 }
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         } finally {
@@ -68,11 +68,11 @@ public class DBConnection {
         return null;
     }
 
-    public static User getUser(String username){
+    public static User getUser(String username) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        try{
+        try {
             conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
 
             String query = "SELECT u.*, r.role_name " +
@@ -86,7 +86,7 @@ public class DBConnection {
 
             rs = pstmt.executeQuery();
 
-            if (rs.next()){
+            if (rs.next()) {
                 User user = new User();
                 user.id = rs.getInt("id");
                 user.username = rs.getString("name");
@@ -96,7 +96,7 @@ public class DBConnection {
 
                 return user;
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         } finally {
@@ -109,11 +109,11 @@ public class DBConnection {
         return null;
     }
 
-    public static List<User> getUsers(){
+    public static List<User> getUsers() {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        try{
+        try {
             List<User> usersList = new ArrayList<>();
             conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
 
@@ -125,18 +125,18 @@ public class DBConnection {
             pstmt = conn.prepareStatement(query);
             rs = pstmt.executeQuery();
 
-                while (rs.next()) {
-                    User user = new User();
-                    user.id = rs.getInt("id");
-                    user.username = rs.getString("name");
-                    user.role = rs.getString("role_name");
+            while (rs.next()) {
+                User user = new User();
+                user.id = rs.getInt("id");
+                user.username = rs.getString("name");
+                user.role = rs.getString("role_name");
 
-                    usersList.add(user);
-                }
+                usersList.add(user);
+            }
 
-                return usersList;
+            return usersList;
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         } finally {
@@ -148,11 +148,11 @@ public class DBConnection {
         }
     }
 
-    public static List<Role> getRolesList(){
+    public static List<Role> getRolesList() {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        try{
+        try {
             List<Role> roles = new ArrayList<>();
             conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
 
@@ -160,16 +160,16 @@ public class DBConnection {
 
             pstmt = conn.prepareStatement(query);
             rs = pstmt.executeQuery();
-                while (rs.next()) {
-                    Role role = new Role();
-                    role.role_id = rs.getInt("role_id");
-                    role.role_name = rs.getString("role_name");
+            while (rs.next()) {
+                Role role = new Role();
+                role.role_id = rs.getInt("role_id");
+                role.role_name = rs.getString("role_name");
 
-                    roles.add(role);
-                }
-                return roles;
+                roles.add(role);
+            }
+            return roles;
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         } finally {
@@ -181,11 +181,11 @@ public class DBConnection {
         }
     }
 
-    public static void insertUser(User user){
+    public static void insertUser(User user) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        try{
+        try {
             conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
 
 
@@ -203,7 +203,8 @@ public class DBConnection {
             pstmt.setInt(1, newUserId);
             pstmt.setString(2, user.username);
             pstmt.setString(3, user.password);
-            pstmt.setString(4, user.dob);;
+            pstmt.setString(4, user.dob);
+            ;
             int rowsAffected = pstmt.executeUpdate();
 
             String selectRoleQuery = "SELECT role_id FROM roles WHERE role_name = ?";
@@ -215,14 +216,14 @@ public class DBConnection {
             if (rs.next()) {
                 roleId = rs.getInt("role_id");
             }
-                String insertUserRoleQuery = "INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)";
-                pstmt = conn.prepareStatement(insertUserRoleQuery);
-                pstmt.setInt(1, newUserId);
-                pstmt.setInt(2, roleId);
-                pstmt.executeUpdate();
+            String insertUserRoleQuery = "INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)";
+            pstmt = conn.prepareStatement(insertUserRoleQuery);
+            pstmt.setInt(1, newUserId);
+            pstmt.setInt(2, roleId);
+            pstmt.executeUpdate();
 
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         } finally {
@@ -234,11 +235,11 @@ public class DBConnection {
         }
     }
 
-    public static void deleteUser(String username){
+    public static void deleteUser(String username) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        try{
+        try {
             conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
 
             String fetchUserQuery = "SELECT * FROM user_details WHERE name = ?";
@@ -246,23 +247,23 @@ public class DBConnection {
             pstmt.setString(1, username);
             rs = pstmt.executeQuery();
 
-            User user=new User();
+            User user = new User();
             if (rs.next()) {
                 user.id = rs.getInt("id");
             }
 
             String deleteRoleQuery = "DELETE FROM user_roles WHERE user_id = ?";
             pstmt = conn.prepareStatement(deleteRoleQuery);
-            pstmt.setInt(1,user.id);
+            pstmt.setInt(1, user.id);
             pstmt.executeUpdate();
 
             String deleteUserQuery = "DELETE FROM user_details where id = ?";
             pstmt = conn.prepareStatement(deleteUserQuery);
-            pstmt.setInt(1,user.id);
+            pstmt.setInt(1, user.id);
             pstmt.executeUpdate();
 
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         } finally {
@@ -274,11 +275,11 @@ public class DBConnection {
         }
     }
 
-    public static void updateRole(int userId, String newRole){
+    public static void updateRole(int userId, String newRole) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        try{
+        try {
             conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
 
             String query = "SELECT * FROM roles WHERE role_name = ?";
@@ -291,17 +292,17 @@ public class DBConnection {
                 role.role_name = rs.getString("role_name");
             }
 
-            if(!Objects.equals(role.role_name, "")){
+            if (!Objects.equals(role.role_name, "")) {
                 int currentRoleId = 0;
                 String fetchUserRole = "SELECT * FROM user_roles WHERE user_id = ? LIMIT 1";
                 pstmt = conn.prepareStatement(fetchUserRole);
-                pstmt.setInt(1,userId);
+                pstmt.setInt(1, userId);
                 rs = pstmt.executeQuery();
-                if(rs.next()){
+                if (rs.next()) {
                     currentRoleId = rs.getInt("role_id");
                 }
 
-                if(currentRoleId > 0){
+                if (currentRoleId > 0) {
                     String updateRoleQuery = "UPDATE user_roles SET role_id = ? WHERE user_id = ?";
                     pstmt = conn.prepareStatement(updateRoleQuery);
                     pstmt.setInt(1, role.role_id);
@@ -310,7 +311,34 @@ public class DBConnection {
                 }
             }
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
+            LOGGER.error(e.getMessage());
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public static List<String> getAccessListForRole(String role) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            List<String> accessList = new ArrayList<>();
+            conn = DriverManager.getConnection("jdbc:h2:file:./testdb", "sa", "");
+            String query = "SELECT ACTIONS FROM ACTIONS WHERE ACTION_ID IN (SELECT ACTION_ID FROM ACCESS_CONTROL_LIST WHERE ROLE_ID IN (SELECT ROLE_ID FROM ROLES WHERE ROLE_NAME = '" + role + "'))";
+
+            pstmt = conn.prepareStatement(query);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                accessList.add(rs.getString("ACTIONS"));
+            }
+            return accessList;
+        } catch (SQLException e) {
             LOGGER.error(e.getMessage());
             throw new RuntimeException(e);
         } finally {
